@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        ID комнаты?
+        <input id="room_name" name="room_name" size="50">
+    </div>
+    <div>
+
+        Ваш ник:
+        <input id="nick_name" name="nick_name" value="{{ nick_name }}" size="50">
+        <br>
+        <button id="submit_button" type="submit">Вход</button>
+    </div>
+    <script>
+            document.querySelector('#nick_name').focus();
+            document.querySelector('#nick_name').onkeyup = function(e) {
+                if (e.key === 'Enter') {  // enter, return
+                    document.querySelector('#submit_button').click();
+                }
+            };
+    </script>
+</form>
+</body>
+</html>

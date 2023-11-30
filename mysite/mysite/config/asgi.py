@@ -15,7 +15,7 @@ from channels.security.websocket import AllowedHostsOriginValidator
 from channels.sessions import SessionMiddlewareStack
 from django.core.asgi import get_asgi_application
 
-from chat.routing import websocket_urlpatterns
+from apps.chat import websocket_urlpatterns
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 # Initialize Django ASGI application early to ensure the AppRegistry
