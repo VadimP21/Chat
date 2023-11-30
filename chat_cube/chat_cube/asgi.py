@@ -1,7 +1,5 @@
 """
-ASGI config for chat_cube project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
+Конфигурация ASGI для проекта chat_cube.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
