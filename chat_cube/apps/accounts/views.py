@@ -11,6 +11,7 @@ from django.views.generic import (
     CreateView,
 )
 
+from .forms import CustomUserCreationForm
 from .models import Profile
 
 
@@ -32,15 +33,15 @@ class RegisterView(CreateView):
     """
     РПредставление для регистрации пользователя
     """
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     template_name = "accounts/registration.html"
     success_url = reverse_lazy("accounts:about-me")
 
     def form_valid(self, form) -> HttpResponse:
         response = super().form_valid(form)
-        Profile.objects.create(user=self.object)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password1")
+        Profile.objects.create(user=self.object)
         user = authenticate(self.request, username=username, password=password)
         login(request=self.request, user=user)
         return response
