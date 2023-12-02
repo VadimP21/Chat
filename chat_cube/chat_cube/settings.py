@@ -18,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
@@ -76,7 +75,6 @@ WSGI_APPLICATION = "chat_cube.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 if DEBUG is True:
-    print('SQLite3!!!!!!!!!!!!s')
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -86,7 +84,6 @@ if DEBUG is True:
 
 else:
     # PostgresSQL
-    print('PostgresSQL!!!!!!!!!!!!s')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
