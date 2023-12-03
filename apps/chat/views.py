@@ -20,6 +20,7 @@ class Index(View):
 
     Это представление обрабатывает запросы GET и POST для страницы индекса.
     """
+
     def get(self, request):
         if not request.user.is_authenticated:
             return render(request, "accounts/registration.html")
@@ -53,6 +54,7 @@ class Room(View):
 
     Это представление обрабатывает запросы GET и POST для страницы комнаты.
     """
+
     def get(self, request, room_name):
         logger.info(f"Room_get with {room_name} ")
         return render(
@@ -64,16 +66,11 @@ class Room(View):
         )
 
     def post(self, request, room_name):
-        message = request.POST.get('message', None)
+        message = request.POST.get("message", None)
         if message:
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                f'chat_{room_name}',
-                {
-                    'type': 'chat.message',
-                    'message': message
-                }
+                f"chat_{room_name}", {"type": "chat.message", "message": message}
             )
-            return HttpResponse('Message sent')
-        return HttpResponse('Message not sent')
-
+            return HttpResponse("Message sent")
+        return HttpResponse("Message not sent")

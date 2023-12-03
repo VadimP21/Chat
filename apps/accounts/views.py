@@ -19,6 +19,7 @@ class AboutMeView(TemplateView):
     """
     Представление для отображения информации о пользователе
     """
+
     template_name = "accounts/about-me.html"
 
 
@@ -26,6 +27,7 @@ class MyLogoutView(LogoutView):
     """
     Представление для обработки выхода пользователя из системы.
     """
+
     next_page = reverse_lazy("accounts:login")
 
 
@@ -33,6 +35,7 @@ class RegisterView(CreateView):
     """
     РПредставление для регистрации пользователя
     """
+
     form_class = CustomUserCreationForm
     template_name = "accounts/registration.html"
     success_url = reverse_lazy("accounts:about-me")

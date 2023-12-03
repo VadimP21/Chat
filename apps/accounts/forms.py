@@ -14,6 +14,7 @@ class CustomUserCreationForm(UserCreationForm):
     """
     Форма для создания CustomUser
     """
+
     class Meta:
         model = User
         fields = ("username",)
