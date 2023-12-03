@@ -1,9 +1,11 @@
+"""
+Потребитель для приложения chat
+"""
 import json
 import logging
 
 from channels.db import database_sync_to_async
 from channels.generic.websocket import AsyncWebsocketConsumer
-from django.contrib.auth.models import AnonymousUser
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +42,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
         print(
-            f"text_data:{text_data}, text_data_json: {text_data_json}, message: {message}"
+            f"text_data:{text_data}, text_data_json: {text_data_json},"
+            f" message: {message}"
         )
 
         # Send message to room group

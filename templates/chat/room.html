@@ -9,11 +9,9 @@
 <input id="chat-message-input" type="text" size="100"><br>
 <input id="chat-message-submit" type="button" value="Send">
 {{ room_name|json_script:"room-name" }}
-{{ profile_name|json_script:"profile-name" }}
 
 <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-        const profileName = JSON.parse(document.getElementById('profile-name').textContent);
 
         const chatSocket = new WebSocket(
             'ws://'

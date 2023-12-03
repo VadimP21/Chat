@@ -1,3 +1,6 @@
+"""
+Точки входа для вебсокетов приложения chat
+"""
 from django.urls import re_path
 
 from .consumers import ChatConsumer

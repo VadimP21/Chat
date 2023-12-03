@@ -1,3 +1,6 @@
+"""
+Основная точка входа в приложение accounts
+"""
 from django.contrib.auth.views import LoginView
 from django.urls import path, reverse_lazy
 

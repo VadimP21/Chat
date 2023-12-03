@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: chat-postgres-db
+    image: postgres:13-alpine
+    env_file:
+      - ./.env
+    volumes:
+      - ./chat_postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
