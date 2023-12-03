@@ -78,7 +78,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if DEBUG is True:
+
+if DEBUG == '1':
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -87,7 +88,6 @@ if DEBUG is True:
     }
 
 else:
-    # PostgresSQL
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
